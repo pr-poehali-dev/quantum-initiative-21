@@ -30,16 +30,16 @@ const slides = [
   },
   {
     id: 2,
-    label: "Актуальность",
+    label: "Введение",
     icon: "Lightbulb",
     content: (
       <div className="space-y-4 text-left">
         <h2 className="text-lg font-semibold text-slate-12 text-center">Введение. Актуальность темы</h2>
         <ul className="space-y-3">
           {[
-            { icon: "School", text: "Школа как ключевой институт социализации ребёнка" },
-            { icon: "Shield", text: "Социальная защита детства — система мер по охране прав и интересов несовершеннолетних" },
-            { icon: "Target", text: "Цель: систематизация типичных проблем и алгоритма действий педагога-психолога" },
+            { icon: "School", text: "Школа выполняет не только образовательную, но и важнейшую социальную функцию" },
+            { icon: "Shield", text: "Социальная защита — комплекс правовых, экономических и психолого-педагогических мер для обеспечения прав и благополучия ребёнка в трудной жизненной ситуации" },
+            { icon: "Target", text: "Цель: систематизировать типичные проблемы и разработать карту алгоритма действий педагога и средств защиты" },
           ].map((item, i) => (
             <li key={i} className="flex items-start gap-3">
               <span className="mt-0.5 text-blue-400 shrink-0">
@@ -49,6 +49,7 @@ const slides = [
             </li>
           ))}
         </ul>
+        <p className="text-xs text-slate-9 italic text-center">В основу работы положены труды ведущих специалистов в области социальной педагогики</p>
       </div>
     ),
   },
@@ -61,17 +62,20 @@ const slides = [
         <h2 className="text-lg font-semibold text-slate-12 text-center">Типичные проблемы обучающихся</h2>
         <div className="grid grid-cols-1 gap-2">
           {[
-            { icon: "Home", color: "text-red-400", text: "Неблагополучие в семье — конфликты, насилие" },
-            { icon: "Zap", color: "text-orange-400", text: "Асоциальное поведение — агрессия, пропуски" },
-            { icon: "Users", color: "text-yellow-400", text: "Трудности социализации — буллинг, замкнутость" },
-            { icon: "Heart", color: "text-pink-400", text: "Проблемы здоровья" },
-            { icon: "EyeOff", color: "text-purple-400", text: "Безнадзорность" },
+            { icon: "Home", color: "text-red-400", title: "Неблагополучие в семье", desc: "Конфликты, алкоголизм, насилие, асоциальный образ жизни родителей" },
+            { icon: "Zap", color: "text-orange-400", title: "Асоциальное поведение", desc: "Агрессия, воровство, бродяжничество, пропуски, употребление ПАВ" },
+            { icon: "Users", color: "text-yellow-400", title: "Трудности социализации", desc: "Дезадаптация, школьная тревожность, буллинг, замкнутость, отсутствие друзей" },
+            { icon: "Heart", color: "text-pink-400", title: "Проблемы здоровья", desc: "Физические недостатки или хронические заболевания, затрудняющие адаптацию" },
+            { icon: "EyeOff", color: "text-purple-400", title: "Безнадзорность", desc: "Ребёнок предоставлен сам себе из-за занятости или безответственности родителей" },
           ].map((item, i) => (
-            <div key={i} className="flex items-center gap-3 bg-slate-3/50 rounded-lg px-3 py-2">
-              <span className={`shrink-0 ${item.color}`}>
+            <div key={i} className="flex items-start gap-3 bg-slate-3/50 rounded-lg px-3 py-2">
+              <span className={`shrink-0 mt-0.5 ${item.color}`}>
                 <Icon name={item.icon} fallback="CircleAlert" size={15} />
               </span>
-              <span className="text-sm text-slate-11">{item.text}</span>
+              <div>
+                <p className="text-sm font-medium text-slate-12">{item.title}</p>
+                <p className="text-xs text-slate-10 leading-snug">{item.desc}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -84,14 +88,14 @@ const slides = [
     icon: "GitBranch",
     content: (
       <div className="space-y-4 text-left">
-        <h2 className="text-lg font-semibold text-slate-12 text-center">Алгоритм действий педагога-психолога</h2>
+        <h2 className="text-lg font-semibold text-slate-12 text-center">Деятельность педагога-психолога</h2>
         <div className="space-y-2">
           {[
-            { step: "1", title: "Диагностика", desc: "Выявление проблемы, сбор информации о ребёнке и семье" },
-            { step: "2", title: "Анализ ситуации", desc: "Оценка рисков, определение приоритетов помощи" },
-            { step: "3", title: "Планирование", desc: "Разработка индивидуального плана коррекционной работы" },
-            { step: "4", title: "Реализация", desc: "Проведение мероприятий, взаимодействие со специалистами" },
-            { step: "5", title: "Мониторинг", desc: "Оценка результатов и корректировка плана" },
+            { step: "1", title: "Диагностика", desc: "Наблюдение, индивидуальные беседы (соблюдение этических норм), сбор информации о семейной ситуации" },
+            { step: "2", title: "Психолого-педагогическая поддержка", desc: "Создание ситуаций успеха, проявление эмпатии, вовлечение в коллективные творческие дела" },
+            { step: "3", title: "Взаимодействие с семьёй", desc: "Встречи с родителями: не обвинить, а предложить помощь и выработать общую стратегию воспитания" },
+            { step: "4", title: "Коррекция", desc: "Музыкотерапия (О.М. Фалетрова), игровые методы и тренинги" },
+            { step: "5", title: "Мониторинг", desc: "Постоянное отслеживание динамики изменений в поведении и успеваемости ребёнка" },
           ].map((item) => (
             <div key={item.step} className="flex items-start gap-3">
               <span className="shrink-0 w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-xs font-bold flex items-center justify-center mt-0.5">
@@ -116,18 +120,19 @@ const slides = [
         <h2 className="text-lg font-semibold text-slate-12 text-center">Методы коррекционной работы</h2>
         <div className="space-y-3">
           {[
-            { icon: "Star", color: "text-green-400", title: "Вовлечение во внеурочную деятельность", desc: "Кружки, секции, творческие объединения" },
-            { icon: "Music", color: "text-purple-400", title: "Арт-терапия", desc: "В т.ч. музыкотерапия — по работам О.М. Фалетровой" },
-            { icon: "Trophy", color: "text-yellow-400", title: "Создание ситуаций успеха", desc: "Формирование позитивного самовосприятия ребёнка" },
+            { icon: "Trophy", color: "text-yellow-400", title: "Создание ситуаций успеха", desc: "Формирование позитивного самовосприятия, опора на сильные стороны ребёнка" },
+            { icon: "Music", color: "text-purple-400", title: "Музыкотерапия", desc: "О.М. Фалетрова: высокая эффективность музыки как средства коррекции эмоционального состояния детей" },
+            { icon: "Gamepad2", color: "text-blue-400", title: "Игровые методы и тренинги", desc: "Развитие коммуникативных навыков, снятие тревожности в безопасной среде" },
+            { icon: "Star", color: "text-green-400", title: "Коллективные творческие дела", desc: "Вовлечение в кружки и секции для развития социальных связей" },
           ].map((item, i) => (
-            <div key={i} className="bg-slate-3/50 rounded-lg p-3 space-y-1">
-              <div className="flex items-center gap-2">
-                <span className={item.color}>
-                  <Icon name={item.icon} fallback="CircleAlert" size={15} />
-                </span>
+            <div key={i} className="bg-slate-3/50 rounded-lg p-3 flex items-start gap-3">
+              <span className={`mt-0.5 shrink-0 ${item.color}`}>
+                <Icon name={item.icon} fallback="CircleAlert" size={15} />
+              </span>
+              <div>
                 <p className="text-sm font-medium text-slate-12">{item.title}</p>
+                <p className="text-xs text-slate-10 leading-snug">{item.desc}</p>
               </div>
-              <p className="text-xs text-slate-10 pl-5">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -148,7 +153,7 @@ const slides = [
               <p className="text-xs font-semibold text-blue-400 uppercase tracking-wide">Внутришкольные</p>
             </div>
             <ul className="px-3 py-2 space-y-1">
-              {["Педагог-психолог, социальный педагог", "Совет профилактики", "Школьная служба медиации", "Индивидуальные программы сопровождения"].map((t, i) => (
+              {["Индивидуальный образовательный маршрут (ИОМ)", "Тьюторское сопровождение", "Постановка на внутришкольный контроль (учёт)", "Вовлечение в кружки и спортивные секции"].map((t, i) => (
                 <li key={i} className="text-xs text-slate-11 flex items-center gap-2">
                   <span className="w-1 h-1 rounded-full bg-blue-400 shrink-0" />{t}
                 </li>
@@ -161,7 +166,7 @@ const slides = [
               <p className="text-xs font-semibold text-green-400 uppercase tracking-wide">Внешние</p>
             </div>
             <ul className="px-3 py-2 space-y-1">
-              {["Органы опеки и попечительства", "Комиссия по делам несовершеннолетних (КДН)", "Центры психолого-педагогической помощи", "Правоохранительные органы"].map((t, i) => (
+              {["Комиссия по делам несовершеннолетних (КДН и ЗП)", "Органы опеки и попечительства (при угрозе жизни)", "Центры социальной помощи и реабилитации", "Инспектор по делам несовершеннолетних (ПДН)"].map((t, i) => (
                 <li key={i} className="text-xs text-slate-11 flex items-center gap-2">
                   <span className="w-1 h-1 rounded-full bg-green-400 shrink-0" />{t}
                 </li>
@@ -181,9 +186,10 @@ const slides = [
         <h2 className="text-lg font-semibold text-slate-12 text-center">Принципы профессиональной этики</h2>
         <div className="space-y-3">
           {[
-            { icon: "Lock", color: "text-blue-400", title: "Конфиденциальность", desc: "Неразглашение информации о семье и ребёнке третьим лицам" },
-            { icon: "HeartHandshake", color: "text-pink-400", title: "Недопустимость осуждения", desc: "Безоценочное отношение к родителям и ребёнку" },
-            { icon: "Handshake", color: "text-green-400", title: "Уважение личности", desc: "Партнёрские отношения, опора на ресурсы семьи" },
+            { icon: "Lock", color: "text-blue-400", title: "Конфиденциальность", desc: "Неразглашение информации о семье и ребёнке — основа доверительного контакта" },
+            { icon: "HeartHandshake", color: "text-pink-400", title: "Недопустимость осуждения", desc: "Цель встречи с родителями — не обвинить, а предложить помощь и стратегию воспитания" },
+            { icon: "Handshake", color: "text-green-400", title: "Уважение личности", desc: "Принятие обучающегося, партнёрские отношения, опора на ресурсы семьи" },
+            { icon: "Eye", color: "text-purple-400", title: "Гуманизм", desc: "Эмпатия и приоритет благополучия ребёнка во всей профессиональной деятельности" },
           ].map((item, i) => (
             <div key={i} className="bg-slate-3/50 rounded-lg p-3 flex items-start gap-3">
               <span className={`mt-0.5 shrink-0 ${item.color}`}>
@@ -207,14 +213,19 @@ const slides = [
       <div className="space-y-4 text-center">
         <h2 className="text-lg font-semibold text-slate-12">Заключение</h2>
         <div className="space-y-3">
-          <div className="bg-blue-500/10 border border-blue-400/20 rounded-xl p-4">
+          <div className="bg-blue-500/10 border border-blue-400/20 rounded-xl p-4 text-left">
             <p className="text-sm text-slate-11 leading-relaxed">
-              Социальная защита детства — это <span className="text-slate-12 font-medium">комплексная система мер</span>, объединяющая усилия школы, семьи и государственных структур.
+              Карта типичных проблем позволяет <span className="text-slate-12 font-medium">структурировать работу педагога</span> и своевременно реагировать на трудности ребёнка.
             </p>
           </div>
-          <div className="bg-green-500/10 border border-green-400/20 rounded-xl p-4">
+          <div className="bg-green-500/10 border border-green-400/20 rounded-xl p-4 text-left">
             <p className="text-sm text-slate-11 leading-relaxed">
-              Эффективность работы педагога-психолога обеспечивается <span className="text-slate-12 font-medium">межведомственным взаимодействием</span> всех специалистов.
+              Эффективность защиты зависит от <span className="text-slate-12 font-medium">комплексного подхода</span>: диагностики, поддержки, диалога с родителями и грамотного использования внешних ресурсов.
+            </p>
+          </div>
+          <div className="bg-purple-500/10 border border-purple-400/20 rounded-xl p-4 text-left">
+            <p className="text-sm text-slate-11 leading-relaxed">
+              Главное — соблюдение профессиональной этики: <span className="text-slate-12 font-medium">конфиденциальности и уважения</span> к личности ребёнка.
             </p>
           </div>
         </div>
